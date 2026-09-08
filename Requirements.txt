@@ -1,0 +1,43 @@
+# ==============================
+# AI Meeting Assistant - requirements.txt
+# ==============================
+
+# --- UI ---
+streamlit==1.38.0
+
+# --- Audio acquisition ---
+yt-dlp==2024.8.6          # download audio from YouTube URLs
+pytube==15.0.0             # optional fallback for YouTube metadata/audio
+
+# --- Transcription (local Whisper) ---
+openai-whisper==20231117
+torch==2.3.1                # required by whisper; CPU build installs automatically on most systems
+ffmpeg-python==0.2.0         # wraps ffmpeg calls used by whisper for audio decoding
+
+# --- Translation (Hindi -> English) ---
+deep-translator==1.11.4      # simple wrapper for translation APIs (Google Translate backend)
+# Alternative/local option if you prefer no external translation API:
+# transformers==4.44.2
+# sentencepiece==0.2.0
+
+# --- LLM orchestration (LangChain + Mistral) ---
+langchain==0.2.16
+langchain-core==0.2.38
+langchain-community==0.2.16
+langchain-mistralai==0.1.13   # LCEL-compatible Mistral integration
+
+# --- RAG pipeline ---
+chromadb==0.5.5
+langchain-chroma==0.1.3
+sentence-transformers==3.0.1  # HuggingFace embedding models
+huggingface-hub==0.24.6
+
+# --- Document export ---
+fpdf2==2.7.9                  # generate PDF exports
+python-docx==1.1.2            # optional, in case DOCX export is added later
+
+# --- Utilities ---
+python-dotenv==1.0.1           # load API keys from .env
+tqdm==4.66.5                   # progress bars for transcription/embedding steps
+pydub==0.25.1                  # audio manipulation/format conversion
+numpy==1.26.4
